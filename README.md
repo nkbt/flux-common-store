@@ -10,8 +10,28 @@ Flux Common Store
 npm install --save-dev flux-common-store
 ```
 
-## Usage
 
+## API
+
+#### `CHANGE_EVENT` (change)
+
+Constant event name, equals `change`
+
+#### `emitChange()`
+
+Emits CHANGE_EVENT
+
+#### `addChangeListener(callback)`: unsubscribeFunction
+
+Adds `callback` listener for CHANGE_EVENT and returns `unsubscribe` function
+
+#### `removeChangeListener(callback)`
+
+Alternative way to unsubscribe from CHANGE_EVENT.
+
+*WARN* For safety reasons, use `unsubscribe` function returned by `addChangeListener` instead
+
+## Usage
 
 #### ./stores/TodoStore.js
 ```js
@@ -19,25 +39,20 @@ import FluxCommonStore from 'flux-common-store';
 import Dispatcher from '../Dispatcher';
 import Constants from '../Constants';
 
-
 let todos = {};
-
 
 const create = text => {
   const id = Date.now();
   todos[id] = {id: id, complete: false, text: text};
 };
 
-
 const destroy = id => delete todos[id];
-
 
 const TodoStore = Object.assign({}, FluxCommonStore, {
   getAll() {
     return todos;
   }
 });
-
 
 TodoStore.dispatcherIndex = Dispatcher.register(({actionType, payload}) => {
   switch (actionType) {
@@ -61,14 +76,12 @@ TodoStore.dispatcherIndex = Dispatcher.register(({actionType, payload}) => {
   return true;
 });
 
-
 export default TodoStore;
 ```
 
 #### ./components/TodoApp.js
 ```js
 import TodoStore from '../stores/TodoStore';
-
 
 const TodoApp = React.createClass({
   getInitialState() {
@@ -96,7 +109,6 @@ const TodoApp = React.createClass({
     );
   }
 });
-
 
 export default TodoApp;
 ```
