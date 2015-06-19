@@ -2,7 +2,7 @@
   "name": "flux-common-store",
   "version": "1.0.0",
   "description": "Common Flux Store",
-  "main": "index.js",
+  "main": "lib/FluxCommonStore.js",
   "scripts": {
     "build": "npm run build:lib",
     "build:lib": "rm -rf lib && babel --plugins object-assign -sd lib src",
