@@ -4,7 +4,13 @@ import throttle from 'lodash.throttle';
 const CHANGE_EVENT = 'change';
 
 
-export default Object.assign({}, EventEmitter.prototype, {
+const FluxCommonStore = {
+  ...EventEmitter.prototype,
+
+
+  CHANGE_EVENT,
+
+
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
@@ -30,4 +36,6 @@ export default Object.assign({}, EventEmitter.prototype, {
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
-}, {CHANGE_EVENT});
+};
+
+export default FluxCommonStore;

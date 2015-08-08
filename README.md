@@ -48,11 +48,13 @@ const create = text => {
 
 const destroy = id => delete todos[id];
 
-const TodoStore = Object.assign({}, FluxCommonStore, {
+const TodoStore = {
+  ...FluxCommonStore,
+
   getAll() {
     return todos;
   }
-});
+};
 
 TodoStore.dispatcherIndex = Dispatcher.register(({actionType, payload}) => {
   switch (actionType) {
