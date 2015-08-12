@@ -11,8 +11,8 @@ const FluxCommonStore = {
   CHANGE_EVENT,
 
 
-  emitChange() {
-    this.emit(CHANGE_EVENT);
+  emitChange(...args) {
+    this.emit(CHANGE_EVENT, ...args);
   },
 
 
