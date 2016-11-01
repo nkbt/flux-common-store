@@ -33,12 +33,12 @@
   },
   "homepage": "https://github.com/nkbt/flux-common-store",
   "dependencies": {
-    "lodash.throttle": "^3.0.4"
+    "lodash.throttle": "^4.1.1"
   },
   "devDependencies": {
-    "babel": "^5.8.21",
-    "babel-core": "^5.8.21",
-    "babel-eslint": "^4.0.5",
-    "eslint": "^1.1.0"
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.0",
+    "babel-eslint": "^7.1.0",
+    "eslint": "^3.9.1"
   }
 }
